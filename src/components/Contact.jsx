@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, MapPin, Phone } from 'lucide-react';
+import { Mail, Send, MapPin, Phone, CheckCircle, Loader2 } from 'lucide-react';
 
 const GithubIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -14,23 +14,38 @@ const LinkedinIcon = ({ size = 20 }) => (
   </svg>
 );
 
-const TwitterIcon = ({ size = 20 }) => (
+const TelegramIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.49h2.039L6.486 3.24H4.298l13.311 17.403z" />
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
   </svg>
 );
 
 const Contact = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 5000);
+    setFormData({ name: '', email: '', message: '' });
+  };
+
   return (
     <section id="contact" className="relative py-32 bg-dark overflow-hidden">
-      {/* Background Cinematic Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-accent/5 rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-accent/4 rounded-full blur-[200px] pointer-events-none" />
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           
-          {/* Left Side: Text & Socials */}
+          {/* Left Side */}
           <div className="space-y-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -39,41 +54,51 @@ const Contact = () => {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-secondary/20 font-body text-xs md:text-sm tracking-[0.5em] uppercase mb-4">Contact</h2>
-              <h3 className="text-5xl md:text-8xl font-heading font-bold text-secondary tracking-tighter leading-none">
+              <h3 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-secondary tracking-tighter leading-none">
                 Let's <span className="text-accent italic font-light">Collaborate</span>
               </h3>
-              <p className="mt-8 text-secondary/50 font-body text-lg leading-relaxed max-w-md">
-                Have a vision for a project? I'm currently open to selective collaborations and high-impact software engineering roles.
+              <p className="mt-8 text-secondary/45 font-body text-lg leading-relaxed max-w-md">
+                Have a vision for a project? I'm currently open to selective collaborations, freelance work, and high-impact software engineering roles.
               </p>
             </motion.div>
 
-            {/* Contact Info Pills */}
+            {/* Contact Info */}
             <motion.div 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-5"
             >
-              <div className="flex items-center gap-6 group cursor-pointer">
-                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center text-secondary group-hover:bg-accent group-hover:text-secondary transition-all duration-300">
-                  <Mail size={20} />
+              <a href="mailto:mikiyas@example.com" className="flex items-center gap-5 group cursor-pointer">
+                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-accent group-hover:text-secondary group-hover:border-accent transition-all duration-300">
+                  <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-secondary/30 font-body text-[10px] tracking-widest uppercase">Email Me</p>
-                  <p className="text-secondary font-body font-bold text-sm tracking-wider">mikiyas@example.com</p>
+                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Email Me</p>
+                  <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-accent transition-colors duration-300">mikiyas@example.com</p>
+                </div>
+              </a>
+
+              <div className="flex items-center gap-5 group">
+                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-primary group-hover:text-secondary group-hover:border-primary transition-all duration-300">
+                  <MapPin size={18} />
+                </div>
+                <div>
+                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Location</p>
+                  <p className="text-secondary font-body font-semibold text-sm tracking-wider">Addis Ababa, Ethiopia</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-6 group cursor-pointer">
-                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center text-secondary group-hover:bg-accent group-hover:text-secondary transition-all duration-300">
-                  <MapPin size={20} />
+              <a href="tel:+251911000000" className="flex items-center gap-5 group cursor-pointer">
+                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-accent group-hover:text-secondary group-hover:border-accent transition-all duration-300">
+                  <Phone size={18} />
                 </div>
                 <div>
-                  <p className="text-secondary/30 font-body text-[10px] tracking-widest uppercase">Location</p>
-                  <p className="text-secondary font-body font-bold text-sm tracking-wider">Addis Ababa, Ethiopia</p>
+                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Call Me</p>
+                  <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-accent transition-colors duration-300">+251 911 000 000</p>
                 </div>
-              </div>
+              </a>
             </motion.div>
 
             {/* Social Links */}
@@ -82,66 +107,92 @@ const Contact = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="pt-12 border-t border-white/5"
+              className="pt-10 border-t border-white/[0.05]"
             >
-              <p className="text-secondary/20 font-body text-[10px] tracking-[0.3em] uppercase mb-8">Find me on</p>
-              <div className="flex gap-8">
-                <a href="#" className="text-secondary/40 hover:text-accent transition-all duration-500 hover:-translate-y-1">
-                  <GithubIcon size={24} />
+              <p className="text-secondary/15 font-body text-[10px] tracking-[0.3em] uppercase mb-6">Find me on</p>
+              <div className="flex gap-5">
+                <a href="https://github.com/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
+                  <GithubIcon size={20} />
                 </a>
-                <a href="#" className="text-secondary/40 hover:text-accent transition-all duration-500 hover:-translate-y-1">
-                  <LinkedinIcon size={24} />
+                <a href="https://linkedin.com/in/mikiyas-hulualem" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
+                  <LinkedinIcon size={20} />
                 </a>
-                <a href="#" className="text-secondary/40 hover:text-accent transition-all duration-500 hover:-translate-y-1">
-                  <TwitterIcon size={24} />
+                <a href="https://t.me/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
+                  <TelegramIcon size={20} />
                 </a>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Side: Contact Form */}
+          {/* Right Side: Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="p-8 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/10 backdrop-blur-sm relative group"
+            className="p-8 md:p-12 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.06] backdrop-blur-sm relative group"
           >
-            {/* Glow Decorative */}
-            <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
+            {/* Glow */}
+            <div className="absolute -inset-1 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
             
-            <form className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-7">
               <div className="space-y-2">
-                <label className="text-secondary/30 font-body text-[10px] tracking-widest uppercase px-4">Full Name</label>
+                <label htmlFor="contact-name" className="text-secondary/25 font-body text-[10px] tracking-widest uppercase px-4">Full Name</label>
                 <input 
+                  id="contact-name"
                   type="text" 
+                  required
                   placeholder="John Doe"
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-secondary font-body text-sm focus:outline-none focus:border-accent/50 focus:bg-white/[0.05] transition-all duration-300"
+                  value={formData.name}
+                  onChange={(e) => setFormData(prev => ({...prev, name: e.target.value}))}
+                  className="w-full bg-white/[0.03] border border-white/[0.08] rounded-2xl px-6 py-4 text-secondary font-body text-sm placeholder:text-secondary/15 focus:outline-none focus:border-accent/40 focus:bg-white/[0.04] transition-all duration-300"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-secondary/30 font-body text-[10px] tracking-widest uppercase px-4">Email Address</label>
+                <label htmlFor="contact-email" className="text-secondary/25 font-body text-[10px] tracking-widest uppercase px-4">Email Address</label>
                 <input 
+                  id="contact-email"
                   type="email" 
+                  required
                   placeholder="john@example.com"
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-secondary font-body text-sm focus:outline-none focus:border-accent/50 focus:bg-white/[0.05] transition-all duration-300"
+                  value={formData.email}
+                  onChange={(e) => setFormData(prev => ({...prev, email: e.target.value}))}
+                  className="w-full bg-white/[0.03] border border-white/[0.08] rounded-2xl px-6 py-4 text-secondary font-body text-sm placeholder:text-secondary/15 focus:outline-none focus:border-accent/40 focus:bg-white/[0.04] transition-all duration-300"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-secondary/30 font-body text-[10px] tracking-widest uppercase px-4">Message</label>
+                <label htmlFor="contact-message" className="text-secondary/25 font-body text-[10px] tracking-widest uppercase px-4">Message</label>
                 <textarea 
+                  id="contact-message"
                   rows="5"
+                  required
                   placeholder="Tell me about your project..."
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-secondary font-body text-sm focus:outline-none focus:border-accent/50 focus:bg-white/[0.05] transition-all duration-300 resize-none"
+                  value={formData.message}
+                  onChange={(e) => setFormData(prev => ({...prev, message: e.target.value}))}
+                  className="w-full bg-white/[0.03] border border-white/[0.08] rounded-2xl px-6 py-4 text-secondary font-body text-sm placeholder:text-secondary/15 focus:outline-none focus:border-accent/40 focus:bg-white/[0.04] transition-all duration-300 resize-none"
                 />
               </div>
 
-              <button className="w-full group relative px-10 py-5 bg-secondary text-dark rounded-full font-body font-bold transition-all duration-500 hover:bg-accent hover:text-secondary overflow-hidden flex items-center justify-center gap-3">
-                <span className="relative z-10 flex items-center gap-3">
-                  SEND MESSAGE <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </span>
+              <button 
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full group relative px-10 py-5 bg-secondary text-dark rounded-full font-body font-bold transition-all duration-500 hover:bg-accent hover:text-secondary overflow-hidden flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_30px_rgba(243,235,221,0.05)]"
+              >
+                {isSubmitted ? (
+                  <span className="flex items-center gap-3 text-emerald-600">
+                    <CheckCircle size={18} /> MESSAGE SENT!
+                  </span>
+                ) : isSubmitting ? (
+                  <span className="flex items-center gap-3">
+                    <Loader2 size={18} className="animate-spin" /> SENDING...
+                  </span>
+                ) : (
+                  <span className="relative z-10 flex items-center gap-3">
+                    SEND MESSAGE <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </span>
+                )}
               </button>
             </form>
           </motion.div>
