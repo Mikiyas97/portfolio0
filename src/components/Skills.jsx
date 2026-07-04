@@ -7,44 +7,36 @@ const skillData = [
     category: "Frontend",
     skills: [
       { name: "React", slug: "react" },
-      { name: "Next.js", slug: "nextdotjs" },
       { name: "Tailwind CSS", slug: "tailwindcss" },
-      { name: "Framer Motion", slug: "framer" },
       { name: "TypeScript", slug: "typescript" },
       { name: "HTML5/CSS3", slug: "html5" },
-      { name: "Zustand", slug: "react" },
     ]
   },
   {
     category: "Backend",
     skills: [
       { name: "Django", slug: "django" },
-      { name: "Django REST", slug: "django" },
       { name: "Node.js", slug: "nodedotjs" },
-      { name: "Express", slug: "express" },
-      { name: "Python", slug: "python" },
       { name: "FastAPI", slug: "fastapi" },
     ]
   },
   {
     category: "AI & Machine Learning",
     skills: [
+      { name: "LangChain", slug: "langchain" },
+      { name: "Hugging Face", slug: "huggingface" },
       { name: "Google Gemini", slug: "googlegemini" },
       { name: "OpenAI API", slug: "openai" },
-      { name: "LangChain", slug: "langchain" },
-      { name: "TensorFlow", slug: "tensorflow" },
-      { name: "OpenCV", slug: "opencv" },
-      { name: "Hugging Face", slug: "huggingface" },
     ]
   },
   {
     category: "Databases & Cloud",
     skills: [
       { name: "PostgreSQL", slug: "postgresql" },
-      { name: "Firebase", slug: "firebase" },
-      { name: "Supabase", slug: "supabase" },
       { name: "MongoDB", slug: "mongodb" },
       { name: "SQLite", slug: "sqlite" },
+      { name: "Firebase", slug: "firebase" },
+      { name: "Supabase", slug: "supabase" },
       { name: "Redis", slug: "redis" },
     ]
   },
@@ -53,19 +45,6 @@ const skillData = [
     skills: [
       { name: "Git/GitHub", slug: "github" },
       { name: "Docker", slug: "docker" },
-      { name: "Vercel", slug: "vercel" },
-      { name: "Railway", slug: "railway" },
-      { name: "VS Code", slug: "visualstudiocode" },
-      { name: "Linux", slug: "linux" },
-    ]
-  },
-  {
-    category: "Desktop Development",
-    skills: [
-      { name: "PyQt6", slug: "qt" },
-      { name: "Electron", slug: "electron" },
-      { name: "Python Automation", slug: "python" },
-      { name: "Desktop UI/UX", slug: "figma" },
     ]
   }
 ];
@@ -75,10 +54,10 @@ const Skills = () => {
     <section id="skills" className="relative py-32 bg-dark overflow-hidden">
       {/* Background */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/4 rounded-full blur-[150px] pointer-events-none" />
-      
+
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-20">
-          
+
           {/* Header */}
           <div className="lg:w-1/3">
             <motion.div
@@ -96,7 +75,7 @@ const Skills = () => {
               <p className="text-secondary/40 font-body text-sm leading-relaxed max-w-sm">
                 A curated selection of technologies I use to build intelligent, high-performance digital products. Focused on scalability, speed, and cinematic user experiences.
               </p>
-              
+
               <div className="mt-12 flex items-center gap-4 text-accent/50 font-body text-[10px] tracking-widest uppercase">
                 <div className="w-12 h-[1px] bg-accent/25" />
                 Continuously Evolving
@@ -119,10 +98,10 @@ const Skills = () => {
           {/* Categories */}
           <div className="lg:w-2/3 space-y-16">
             {skillData.map((data, index) => (
-              <SkillCategory 
-                key={index} 
-                title={data.category} 
-                skills={data.skills} 
+              <SkillCategory
+                key={index}
+                title={data.category}
+                skills={data.skills}
                 index={index}
               />
             ))}

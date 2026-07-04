@@ -1,41 +1,179 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const SkillCategory = ({ title, skills, index }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
-      className="relative p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] group hover:border-accent/20 transition-all duration-500"
-    >
-      {/* Background Hover Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.01] to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-      
-      <div className="relative z-10">
-        <h4 className="text-xl font-heading font-bold text-secondary mb-6 flex items-center gap-4">
-          <span className="w-8 h-[1px] bg-accent/40" />
-          {title}
-        </h4>
-        
-        <div className="flex flex-wrap gap-3">
-          {skills.map((skill, i) => (
-            <div 
-              key={i}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.05] hover:border-accent/40 hover:bg-accent/5 transition-all duration-300 group/item cursor-default"
-            >
-              {/* Note: In a real implementation, you might want to map these slugs to actual icons using simple-icons or similar */}
-              <div className="w-1.5 h-1.5 rounded-full bg-secondary/30 group-hover/item:bg-accent transition-colors duration-300" />
-              <span className="text-secondary/70 font-body text-sm group-hover/item:text-secondary transition-colors duration-300">
-                {skill.name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  );
+// Comprehensive skill icon map
+const skillIcons = {
+  "React": (
+    <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
+      <circle cx="12" cy="12" r="2.5" fill="#61DAFB" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" strokeWidth="1.2" fill="none" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" strokeWidth="1.2" fill="none" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" strokeWidth="1.2" fill="none" transform="rotate(120 12 12)" />
+    </svg>
+  ),
+  "Next.js": (
+    <svg viewBox="0 0 24 24" className="w-4 h-4">
+      <circle cx="12" cy="12" r="11" fill="white" />
+      <path d="M9.5 8v8l7-8H9.5z" fill="black" />
+      <rect x="15" y="8" width="1.5" height="8" fill="black" />
+    </svg>
+  ),
+  "Tailwind CSS": (
+    <svg viewBox="0 0 24 24" fill="#06B6D4" className="w-4 h-4">
+      <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+    </svg>
+  ),
+  "TypeScript": (
+    <svg viewBox="0 0 24 24" className="w-4 h-4">
+      <rect width="24" height="24" rx="3" fill="#3178C6" />
+      <path d="M5.5 12.5h7v1.5h-2.6v6h-1.8v-6H5.5v-1.5zm7.8 0H15v1.3h1.8c.7 0 1.2.5 1.2 1.2v3c0 .7-.5 1.2-1.2 1.2h-2.3v-1.3h2v-2.7h-1.8c-.7 0-1.2-.5-1.2-1.2v-.3c0-.7.5-1.2 1.2-1.2h.6z" fill="white" />
+    </svg>
+  ),
+  "HTML5/CSS3": (
+    <svg viewBox="0 0 24 24" className="w-4 h-4">
+      <path d="M2 1l1.813 20.163L12 24l8.187-2.837L22 1H2z" fill="#E44D26" />
+      <path d="M12 2.5v19.8l6.6-2.3L20.2 2.5H12z" fill="#F16529" />
+      <path d="M7.5 8h9l-.3 3H8.2l.3 3h7.3l-.5 5.5L12 20.5l-3.3-1L8.4 16h2.3l.2 1.5 1.1.3 1.1-.3.2-2.5H7.8L7 8h0z" fill="white" />
+    </svg>
+  ),
+  "Django": (
+    <svg viewBox="0 0 24 24" fill="#0C4B33" className="w-4 h-4">
+      <path d="M11.146 0h3.924v18.166c-2.013.382-3.49.535-5.1.535-4.791 0-7.288-2.166-7.288-6.32 0-3.955 2.688-6.51 6.86-6.51.637 0 1.121.05 1.604.153V0zm0 9.143a3.894 3.894 0 00-1.28-.178c-2.012 0-3.174 1.222-3.174 3.36 0 2.076 1.1 3.222 3.112 3.222.381 0 .698-.025 1.342-.102V9.143zM21.314 6.06v9.098c0 3.134-.229 4.638-.917 5.937-.637 1.222-1.478 1.996-3.22 2.905l-3.646-1.733c1.74-.856 2.58-1.58 3.13-2.7.573-1.147.78-2.472.78-5.86V6.06h3.873zM17.39.021h3.924v4.026H17.39V.021z" />
+    </svg>
+  ),
+  "Django REST": (
+    <svg viewBox="0 0 24 24" fill="#A30000" className="w-4 h-4">
+      <path d="M11.146 0h3.924v18.166c-2.013.382-3.49.535-5.1.535-4.791 0-7.288-2.166-7.288-6.32 0-3.955 2.688-6.51 6.86-6.51.637 0 1.121.05 1.604.153V0zm0 9.143a3.894 3.894 0 00-1.28-.178c-2.012 0-3.174 1.222-3.174 3.36 0 2.076 1.1 3.222 3.112 3.222.381 0 .698-.025 1.342-.102V9.143zM21.314 6.06v9.098c0 3.134-.229 4.638-.917 5.937-.637 1.222-1.478 1.996-3.22 2.905l-3.646-1.733c1.74-.856 2.58-1.58 3.13-2.7.573-1.147.78-2.472.78-5.86V6.06h3.873zM17.39.021h3.924v4.026H17.39V.021z" />
+    </svg>
+  ),
+  "Node.js": (
+    <svg viewBox="0 0 24 24" fill="#539E43" className="w-4 h-4">
+      <path d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.585-.203.703-.25 1.328-.604.065-.037.151-.023.218.017l2.256 1.339a.29.29 0 00.272 0l8.795-5.076a.277.277 0 00.134-.238V6.921a.283.283 0 00-.137-.242l-8.791-5.072a.278.278 0 00-.271 0L3.075 6.68a.284.284 0 00-.139.241v10.15a.27.27 0 00.138.236l2.409 1.392c1.307.654 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.112.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675A1.857 1.857 0 011.152 17.07V6.921c0-.681.366-1.317.963-1.655L10.91.188a1.929 1.929 0 011.846 0l8.794 5.078c.598.339.965.975.965 1.655v10.15c0 .68-.367 1.316-.965 1.654l-8.794 5.078a1.86 1.86 0 01-.758.197z" />
+    </svg>
+  ),
+  "Python": (
+    <svg viewBox="0 0 24 24" className="w-4 h-4">
+      <path d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.96 3.403 5.96h2.03v-2.867s-.109-3.403 3.35-3.403h5.766s3.24.052 3.24-3.134V3.545S18.29 0 11.914 0zM8.708 2.048a1.042 1.042 0 110 2.084 1.042 1.042 0 010-2.084z" fill="#3776AB" />
+      <path d="M12.087 24c6.093 0 5.713-2.656 5.713-2.656l-.007-2.752h-5.814v-.826H20.1S24 18.211 24 12.031c0-6.18-3.403-5.96-3.403-5.96h-2.03v2.867s.109 3.403-3.35 3.403H9.45s-3.24-.052-3.24 3.134v4.98S5.71 24 12.087 24zm3.206-2.048a1.042 1.042 0 110-2.084 1.042 1.042 0 010 2.084z" fill="#FFD43B" />
+    </svg>
+  ),
+  "FastAPI": (
+    <svg viewBox="0 0 24 24" fill="#009688" className="w-4 h-4">
+      <path d="M12 0C5.375 0 0 5.375 0 12c0 6.627 5.375 12 12 12 6.626 0 12-5.373 12-12 0-6.625-5.374-12-12-12zm-.624 21.62v-7.528H7.6L13.203 2.38v7.528h3.776L11.376 21.62z" />
+    </svg>
+  ),
+  "LangChain": (
+    <svg viewBox="0 0 24 24" className="w-4 h-4">
+      <path d="M12 2L4 6.5v11L12 22l8-4.5v-11L12 2z" fill="none" stroke="#1C3C3C" strokeWidth="1.5" />
+      <circle cx="12" cy="8" r="2" fill="#1C3C3C" />
+      <circle cx="8" cy="14" r="2" fill="#1C3C3C" />
+      <circle cx="16" cy="14" r="2" fill="#1C3C3C" />
+      <line x1="12" y1="10" x2="8" y2="12" stroke="#1C3C3C" strokeWidth="1" />
+      <line x1="12" y1="10" x2="16" y2="12" stroke="#1C3C3C" strokeWidth="1" />
+      <line x1="8" y1="14" x2="16" y2="14" stroke="#1C3C3C" strokeWidth="1" />
+    </svg>
+  ),
+
+  "Hugging Face": (
+    <svg viewBox="0 0 24 24" fill="#FFD21E" className="w-4 h-4">
+      <circle cx="12" cy="12" r="10" fill="#FFD21E" />
+      <circle cx="8.5" cy="10" r="1.8" fill="#1A1A1A" />
+      <circle cx="15.5" cy="10" r="1.8" fill="#1A1A1A" />
+      <circle cx="9" cy="9.5" r="0.6" fill="white" />
+      <circle cx="16" cy="9.5" r="0.6" fill="white" />
+      <path d="M7.5 14.5c0 0 2 3 4.5 3s4.5-3 4.5-3" stroke="#1A1A1A" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+    </svg>
+  ),
+  "PostgreSQL": (
+    <svg viewBox="0 0 24 24" fill="#336791" className="w-4 h-4">
+      <path d="M17.128 0a10.134 10.134 0 00-2.755.403l-.063.02A10.922 10.922 0 0012.6.258C11.422.238 10.4.524 9.594 1.01 8.79.69 7.058.25 5.33.352 4.068.426 2.705.86 1.614 2.065c-1.092 1.204-1.678 3.063-1.39 5.666.076.687.589 2.78 1.324 4.883.365 1.05.793 2.098 1.3 2.9.254.402.548.765.9 1.04.35.274.788.455 1.248.384.38-.058.652-.272.874-.498.377-.384.654-.87.993-1.39l.003-.004A5.323 5.323 0 009.2 16.2c.493-.076.95-.216 1.332-.425 0 0 .001 0 0 0a5.003 5.003 0 00-.152 1.089c-.03.584.076 1.2.357 1.703.278.497.73.895 1.39 1.03.605.123 1.12-.004 1.565-.244.443-.24.823-.58 1.17-.96.348-.38.66-.802.927-1.2.176-.262.326-.52.453-.77a7.093 7.093 0 001.186.032c.875-.075 1.853-.363 2.586-.987.08-.067.157-.138.228-.214l.04.053c.244.33.618.677 1.117.798.273.067.56.048.83-.068.27-.116.476-.324.628-.55.303-.452.478-1.022.606-1.626.244-1.15.346-2.506.394-3.404.012-.217.02-.4.025-.554a4.48 4.48 0 001.1-1.694c.343-.92.49-2.066.373-3.457-.225-2.655-1.584-4.366-3.468-5.113A7.042 7.042 0 0017.128 0z" />
+    </svg>
+  ),
+  "Firebase": (
+    <svg viewBox="0 0 24 24" className="w-4 h-4">
+      <path d="M3.89 15.673L6.255 1.618a.359.359 0 01.676-.116l2.533 4.73-1.014 1.903L3.89 15.673z" fill="#FFA000" />
+      <path d="M12.658 8.757L10.78 5.084 3.89 15.673l8.768-6.916z" fill="#F57C00" />
+      <path d="M17.297 3.889a.359.359 0 01.61.245l2.204 17.489-6.766 3.953a1.088 1.088 0 01-1.082.017L3.89 15.673l13.407-11.784z" fill="#FFCA28" />
+      <path d="M12.658 8.757l4.64-4.868a.359.359 0 01.61.245l2.204 17.489-6.766 3.953a1.088 1.088 0 01-1.082.017L3.89 15.673l8.768-6.916z" fill="#FFA000" opacity=".5" />
+    </svg>
+  ),
+  "Supabase": (
+    <svg viewBox="0 0 24 24" className="w-4 h-4">
+      <defs><linearGradient id="supa_sk" x1="20.86%" y1="0%" x2="63.35%" y2="100%"><stop offset="0%" stopColor="#249361" /><stop offset="100%" stopColor="#3ECF8E" /></linearGradient></defs>
+      <path d="M13.5 21.87c-.46.6-1.41.27-1.42-.5l-.16-7.37h7.67c1.17 0 1.82 1.35 1.08 2.24L13.5 21.87z" fill="url(#supa_sk)" />
+      <path d="M10.5 2.13c.46-.6 1.41-.27 1.42.5l.16 7.37H4.41c-1.17 0-1.82-1.35-1.08-2.24L10.5 2.13z" fill="#3ECF8E" opacity=".7" />
+    </svg>
+  ),
+  "MongoDB": (
+    <svg viewBox="0 0 24 24" fill="#47A248" className="w-4 h-4">
+      <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z" />
+    </svg>
+  ),
+  "SQLite": (
+    <svg viewBox="0 0 24 24" fill="#003B57" className="w-4 h-4">
+      <path d="M21.86 2.14a4.3 4.3 0 00-3.1-1.27 5.3 5.3 0 00-3.68 1.65l-.1.12C13.62 4.1 7.32 12.21 5.27 19.95c-.2.75-.35 1.47-.44 2.13l-.04.3c-.03.3-.04.56-.03.78.02.5.14.85.39 1.07.23.2.47.27.7.27.51 0 1.07-.33 1.61-.73l.16-.12c.8-.62 1.67-1.43 2.48-2.3a37 37 0 003.98-5.08l.02-.03c.27-.42.42-.9.42-1.39 0-.82-.39-1.6-1.05-2.1a2.82 2.82 0 00-1.7-.57c-.36 0-.72.07-1.06.2l-.02.01c1.35-2.33 3.06-4.88 4.38-6.35l.04-.05a3.6 3.6 0 012.5-1.17c.75 0 1.46.33 2.05.96.57.6.93 1.43 1.01 2.34.1 1.04-.14 2.15-.7 3.3-1.1 2.27-3.3 4.42-5.02 5.55l-.06.04c-.17.1-.28.3-.28.5 0 .33.27.6.6.6.11 0 .22-.03.32-.1 1.88-1.2 4.28-3.55 5.49-6.04.66-1.35.94-2.68.82-3.94-.1-1.15-.57-2.2-1.3-2.97z" />
+    </svg>
+  ),
+  "Redis": (
+    <svg viewBox="0 0 24 24" fill="#DC382D" className="w-4 h-4">
+      <path d="M10.5 2.661l.54.997-1.797.644 2.409.218.748 1.246.467-1.397 2.409-.218-2.024-.578.468-1.246-1.128.86L10.5 2.66zm7.5 3.17c-2.874 0-10.2 1.218-10.2 1.218L24 11.39V8.266c0-1.58-3.6-2.435-6-2.435zM0 6.158v3.08l8.4 2.052-8.4 2.053v3.08l12 3.341L24 16.422v-3.08L12 9.998 24 6.87V3.918L12 7.082 0 6.158z" />
+    </svg>
+  ),
+  "Git/GitHub": (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-white">
+      <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+    </svg>
+  ),
+  "Docker": (
+    <svg viewBox="0 0 24 24" fill="#2496ED" className="w-4 h-4">
+      <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185zm-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.186zm0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.186.185.186zm-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.186.186.186zm5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185zm-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185zm-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.185-.186H5.136a.186.186 0 00-.186.185v1.888c0 .102.084.185.186.185zm-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185zm23.693-1.32c-.545-.373-1.8-.56-2.77-.388-.12-.848-.58-1.586-1.138-2.2l-.387-.453-.453.386c-.91.776-1.15 2.074-.96 3.067.09.466.326 1.005.69 1.396-.312.18-.873.382-1.636.382H.782l-.05.503c-.17 1.947.197 3.9 1.157 5.55 1.042 1.79 2.687 2.73 5.053 2.73 4.812 0 8.526-2.28 10.403-7.16.683.016 2.16.096 2.917-1.462l.15-.314-.446-.305z" />
+    </svg>
+  ),
 };
 
-export default SkillCategory;
+const SkillCategory = ({ title, skills, index }) => {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: index * 0.1 }}
+        className="relative p-8 rounded-3xl bg-white/[0.02] border border-white/[0.05] group hover:border-accent/20 transition-all duration-500"
+      >
+        {/* Background Hover Effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.01] to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+        <div className="relative z-10">
+          <h4 className="text-xl font-heading font-bold text-secondary mb-6 flex items-center gap-4">
+            <span className="w-8 h-[1px] bg-accent/40" />
+            {title}
+          </h4>
+
+          <div className="flex flex-wrap gap-3">
+            {skills.map((skill, i) => {
+              const icon = skillIcons[skill.name];
+              return (
+                <div
+                  key={i}
+                  className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.05] hover:border-accent/40 hover:bg-accent/5 transition-all duration-300 group/item cursor-default"
+                >
+                  {icon ? (
+                    <div className="shrink-0 opacity-70 group-hover/item:opacity-100 transition-opacity duration-300">
+                      {icon}
+                    </div>
+                  ) : (
+                    <div className="w-1.5 h-1.5 rounded-full bg-secondary/30 group-hover/item:bg-accent transition-colors duration-300" />
+                  )}
+                  <span className="text-secondary/70 font-body text-sm group-hover/item:text-secondary transition-colors duration-300">
+                    {skill.name}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </motion.div>
+    );
+  };
+
+  export default SkillCategory;
