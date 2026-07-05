@@ -68,13 +68,13 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-80" />
 
               {/* Profile Card */}
-              <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/[0.08]">
-                <div className="flex items-center gap-3 mb-3">
-                  <Sparkles size={16} className="text-accent" />
-                  <p className="text-accent font-body text-[10px] tracking-widest uppercase">Creative Software Engineer</p>
+              <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 p-4 md:p-6 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/[0.08]">
+                <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
+                  <Sparkles className="text-accent w-3 h-3 md:w-4 md:h-4" />
+                  <p className="text-accent font-body text-[8px] md:text-[10px] tracking-widest uppercase">Creative Software Engineer</p>
                 </div>
-                <p className="text-secondary font-heading text-xl font-bold">Mikiyas Hulualem</p>
-                <p className="text-secondary/40 font-body text-xs mt-2 leading-relaxed">
+                <p className="text-secondary font-heading text-lg md:text-xl font-bold">Mikiyas Hulualem</p>
+                <p className="text-secondary/40 font-body text-[10px] md:text-xs mt-1 md:mt-2 leading-relaxed">
                   Software Engineering Student at Debre Berhan University, specializing in AI and Full-Stack development.
                 </p>
               </div>
