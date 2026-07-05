@@ -15,7 +15,7 @@ const projects = [
     description: "A peer-to-peer educational platform for Debre Berhan University students. Features include an AI-powered matching engine, real-time live chat via WebSockets, passwordless OTP verification, and an interactive swipe deck to find study partners.",
     image: "/projects/skillswap.png",
     tech: ["React", "Django", "Gemini AI", "Supabase", "Tailwind CSS", "WebSockets"],
-    link: "https://skill-swap-theta-seven.vercel.app/",
+    link: "https://skill-swap-jtb9.vercel.app/",
     github: "https://github.com/Mikiyas97/skillSwap",
     featured: true,
     highlights: [
@@ -31,7 +31,7 @@ const projects = [
     description: "A Flask-based application that allows users to query a SQLite database using natural language. It leverages Google's Gemini AI to translate questions into SQL queries, executes them, and displays results in a responsive interface.",
     image: "/projects/querychatbot.png",
     tech: ["Flask", "Python", "SQLite", "Gemini AI", "Tailwind CSS"],
-    link: "https://query-chat-bot.vercel.app/",
+    link: "https://query-chat-bot-w1nx.vercel.app/",
     github: "https://github.com/Mikiyas97/QueryChatBot",
     featured: false,
     highlights: [
@@ -267,8 +267,8 @@ const techIcons = {
   ),
   "JavaScript": (
     <svg viewBox="0 0 24 24" className="w-3.5 h-3.5">
-      <path d="M0 0h24v24H0z" fill="#F7DF1E"/>
-      <path d="M11.854 14.73c-.062-.12-.132-.23-.207-.333l-1.92 1.11c.214.335.534.613.91.802.38.193.81.288 1.258.288.583 0 1.085-.145 1.488-.426.39-.272.583-.65.583-1.12 0-.25-.06-.474-.176-.665-.116-.188-.306-.35-.556-.475-.24-.117-.557-.222-.924-.31-1.026-.237-1.768-.535-2.18-.88-.415-.35-.63-.846-.63-1.468 0-.482.128-.9.378-1.242.253-.346.613-.615 1.066-.795.45-.184.97-.278 1.54-.278.508 0 .977.086 1.393.253.414.16.76.386 1.025.66.257.265.44.57.54.912l-1.854 1.045c-.156-.412-.416-.71-.762-.88-.337-.16-.723-.242-1.137-.242-.486 0-.897.108-1.21.317-.306.2-.462.482-.462.833 0 .216.05.405.15.556.102.148.273.28.5.385.23.103.545.197.935.275 1.01.21 1.748.51 2.183.882.44.37.665.88.665 1.503 0 .5-.138.932-.405 1.282-.266.347-.638.618-1.096.804-.45.18-1.002.274-1.63.274-.686 0-1.3-.122-1.826-.358-.518-.236-.94-.576-1.255-1.005zm-5.74-2.584v-3.08h2.31v4.88c0 .874-.18 1.542-.525 1.986-.347.436-.882.66-1.58.66-.462 0-.892-.093-1.274-.275-.374-.18-.682-.44-.913-.762-.224-.32-.34-.7-.34-1.127v-.122l2.12-.55c.045.313.155.56.326.732.164.167.382.253.64.253.305 0 .54-.085.696-.252.155-.17.23-.418.23-.736z" fill="#000000"/>
+      <path d="M0 0h24v24H0z" fill="#F7DF1E" />
+      <path d="M11.854 14.73c-.062-.12-.132-.23-.207-.333l-1.92 1.11c.214.335.534.613.91.802.38.193.81.288 1.258.288.583 0 1.085-.145 1.488-.426.39-.272.583-.65.583-1.12 0-.25-.06-.474-.176-.665-.116-.188-.306-.35-.556-.475-.24-.117-.557-.222-.924-.31-1.026-.237-1.768-.535-2.18-.88-.415-.35-.63-.846-.63-1.468 0-.482.128-.9.378-1.242.253-.346.613-.615 1.066-.795.45-.184.97-.278 1.54-.278.508 0 .977.086 1.393.253.414.16.76.386 1.025.66.257.265.44.57.54.912l-1.854 1.045c-.156-.412-.416-.71-.762-.88-.337-.16-.723-.242-1.137-.242-.486 0-.897.108-1.21.317-.306.2-.462.482-.462.833 0 .216.05.405.15.556.102.148.273.28.5.385.23.103.545.197.935.275 1.01.21 1.748.51 2.183.882.44.37.665.88.665 1.503 0 .5-.138.932-.405 1.282-.266.347-.638.618-1.096.804-.45.18-1.002.274-1.63.274-.686 0-1.3-.122-1.826-.358-.518-.236-.94-.576-1.255-1.005zm-5.74-2.584v-3.08h2.31v4.88c0 .874-.18 1.542-.525 1.986-.347.436-.882.66-1.58.66-.462 0-.892-.093-1.274-.275-.374-.18-.682-.44-.913-.762-.224-.32-.34-.7-.34-1.127v-.122l2.12-.55c.045.313.155.56.326.732.164.167.382.253.64.253.305 0 .54-.085.696-.252.155-.17.23-.418.23-.736z" fill="#000000" />
     </svg>
   ),
   "Chart.js": (
@@ -279,7 +279,7 @@ const techIcons = {
   ),
   "C++17": (
     <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="#00599C">
-      <path d="M21.706 13.91a2.185 2.185 0 01-1.094 1.895l-7.514 4.337a2.185 2.185 0 01-2.196 0l-7.515-4.337a2.185 2.185 0 01-1.094-1.895V5.244a2.185 2.185 0 011.094-1.895l7.515-4.337a2.185 2.185 0 012.196 0l7.514 4.337a2.185 2.185 0 011.094 1.895v8.666z" fill="#00599C" opacity="0.8"/>
+      <path d="M21.706 13.91a2.185 2.185 0 01-1.094 1.895l-7.514 4.337a2.185 2.185 0 01-2.196 0l-7.515-4.337a2.185 2.185 0 01-1.094-1.895V5.244a2.185 2.185 0 011.094-1.895l7.515-4.337a2.185 2.185 0 012.196 0l7.514 4.337a2.185 2.185 0 011.094 1.895v8.666z" fill="#00599C" opacity="0.8" />
       <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fill="#FFF" fontSize="6" fontWeight="bold">C++</text>
     </svg>
   ),
@@ -450,7 +450,7 @@ const Work = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            >
+          >
             <h2 className="text-secondary/20 font-body text-xs md:text-sm tracking-[0.5em] uppercase mb-4">Portfolio</h2>
             <h3 className="text-5xl md:text-7xl font-heading font-bold text-secondary tracking-tighter leading-none">
               Selected <span className="text-accent italic font-light">Projects</span>
