@@ -148,14 +148,14 @@ const Hero = () => {
                 SOFTWARE <br />
                 <span className="text-accent italic font-light">ENGINEER</span> <span className="text-secondary/15">•</span> <br />
                 AI <span className="relative inline-block">
-                  BUILDER
+                  DEVELOPER
                   <svg className="absolute -bottom-2 left-0 w-full h-3 text-accent/30" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="2" />
                   </svg>
                 </span>
               </h1>
               <p className="mt-8 text-secondary/40 font-body text-xs md:text-sm tracking-[0.5em] uppercase">
-                FULL-STACK DEVELOPER • SYSTEM ARCHITECT
+                FULL-STACK DEVELOPER • AI DEVELOPER
               </p>
             </motion.div>
 
@@ -166,10 +166,10 @@ const Hero = () => {
               className="space-y-6 max-w-xl mx-auto lg:mx-0 mb-12"
             >
               <p className="text-secondary/80 font-body text-lg md:text-xl leading-relaxed">
-                Creative Software Engineer building <span className="text-accent font-semibold">AI-powered systems</span>, cinematic interfaces, and modern digital experiences.
+                Passionate about building <span className="text-accent font-semibold">AI-powered applications</span>, modern web experiences, and practical software solutions.
               </p>
               <p className="text-secondary/40 font-body text-sm md:text-base leading-relaxed max-w-lg">
-                I develop modern web and desktop applications focused on intelligent systems, premium UI/UX, and scalable software engineering solutions.
+                I enjoy creating intelligent tools, exploring new technologies, and continuously improving my skills through real-world projects.
               </p>
             </motion.div>
 
@@ -210,7 +210,7 @@ const Hero = () => {
                 <a href="https://github.com/Mikiyas97" target="_blank" rel="noopener noreferrer" className="text-secondary/25 hover:text-accent transition-all duration-500 hover:-translate-y-1">
                   <GithubIcon size={22} />
                 </a>
-                <a href="https://linkedin.com/in/mikiyas-hulualem" target="_blank" rel="noopener noreferrer" className="text-secondary/25 hover:text-accent transition-all duration-500 hover:-translate-y-1">
+                <a href="https://www.linkedin.com/in/mikiyas97/" target="_blank" rel="noopener noreferrer" className="text-secondary/25 hover:text-accent transition-all duration-500 hover:-translate-y-1">
                   <LinkedinIcon size={22} />
                 </a>
                 <a href="https://t.me/Mikiyas97" target="_blank" rel="noopener noreferrer" className="text-secondary/25 hover:text-accent transition-all duration-500 hover:-translate-y-1">

@@ -16,7 +16,7 @@ const LinkedinIcon = ({ size = 20 }) => (
 
 const TelegramIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
   </svg>
 );
 
@@ -28,76 +28,51 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative py-16 bg-dark border-t border-white/[0.04]">
+    <footer className="relative py-8 bg-dark border-t border-white/[0.04]">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
-          <div>
-            <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center border border-white/10">
-                <span className="text-secondary font-heading font-bold text-lg">M</span>
-              </div>
-              <span className="text-secondary font-heading font-bold text-xl tracking-wider">
-                MIKIYAS <span className="text-accent">H.</span>
-              </span>
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center border border-white/10">
+              <span className="text-secondary font-heading font-bold text-sm">M</span>
             </div>
-            <p className="text-secondary/30 font-body text-sm leading-relaxed max-w-xs">
-              Creative Software Engineer building AI-powered systems and premium digital experiences from Addis Ababa, Ethiopia.
-            </p>
+            <span className="text-secondary font-heading font-bold text-lg tracking-wider">
+              MIKIYAS <span className="text-accent">H.</span>
+            </span>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-secondary/20 font-body text-[10px] tracking-[0.4em] uppercase mb-6">Quick Links</h4>
-            <nav className="space-y-3">
-              {['About', 'Skills', 'Work', 'Experience', 'Contact'].map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  onClick={(e) => { e.preventDefault(); document.getElementById(link.toLowerCase())?.scrollIntoView({ behavior: 'smooth' }); }}
-                  className="block text-secondary/35 hover:text-accent font-body text-sm transition-colors duration-300"
-                >
-                  {link}
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          {/* Connect */}
-          <div>
-            <h4 className="text-secondary/20 font-body text-[10px] tracking-[0.4em] uppercase mb-6">Connect</h4>
-            <div className="flex gap-4 mb-6">
-              <a href="https://github.com/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/30 hover:text-accent hover:border-accent/30 transition-all duration-300">
-                <GithubIcon size={18} />
-              </a>
-              <a href="https://linkedin.com/in/mikiyas-hulualem" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/30 hover:text-accent hover:border-accent/30 transition-all duration-300">
-                <LinkedinIcon size={18} />
-              </a>
-              <a href="https://t.me/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/30 hover:text-accent hover:border-accent/30 transition-all duration-300">
-                <TelegramIcon size={18} />
-              </a>
-            </div>
-            <a href="mailto:mikiyas@example.com" className="text-secondary/30 hover:text-accent font-body text-sm transition-colors duration-300">
-              mikiyas@example.com
+          {/* Social Links */}
+          <div className="flex items-center gap-3">
+            <a href="https://github.com/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/30 hover:text-accent hover:border-accent/30 transition-all duration-300">
+              <GithubIcon size={16} />
+            </a>
+            <a href="https://www.linkedin.com/in/mikiyas97/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/30 hover:text-accent hover:border-accent/30 transition-all duration-300">
+              <LinkedinIcon size={16} />
+            </a>
+            <a href="https://t.me/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/30 hover:text-accent hover:border-accent/30 transition-all duration-300">
+              <TelegramIcon size={16} />
+            </a>
+            <span className="text-white/10 mx-1">|</span>
+            <a href="mailto:mikiyashulualem@gmail.com" className="text-secondary/30 hover:text-accent font-body text-xs transition-colors duration-300">
+              mikiyashulualem@gmail.com
             </a>
           </div>
-        </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-white/[0.04] gap-4">
-          <p className="text-secondary/15 font-body text-[10px] tracking-[0.3em] uppercase flex items-center gap-2">
-            © {currentYear} Mikiyas Hulualem. Built with <Heart size={10} className="text-accent/40" /> precision.
-          </p>
-          
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/30 hover:text-accent hover:border-accent/30 transition-all duration-300"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp size={16} />
-          </motion.button>
+          {/* Copyright & Back to Top */}
+          <div className="flex items-center gap-4">
+            <p className="text-secondary/15 font-body text-[10px] tracking-[0.3em] uppercase">
+              © {currentYear} Mikiyas Hulualem.
+            </p>
+            <motion.button
+              onClick={scrollToTop}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-8 h-8 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/30 hover:text-accent hover:border-accent/30 transition-all duration-300"
+              aria-label="Scroll to top"
+            >
+              <ArrowUp size={14} />
+            </motion.button>
+          </div>
         </div>
       </div>
     </footer>

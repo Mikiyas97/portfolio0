@@ -51,7 +51,7 @@ const skillData = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative py-32 bg-dark overflow-hidden">
+    <section id="skills" className="relative py-16 md:py-32 bg-dark overflow-hidden">
       {/* Background */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/4 rounded-full blur-[150px] pointer-events-none" />
 
@@ -70,10 +70,10 @@ const Skills = () => {
               <h2 className="text-secondary/20 font-body text-xs md:text-sm tracking-[0.5em] uppercase mb-4">Expertise</h2>
               <h3 className="text-5xl md:text-7xl font-heading font-bold text-secondary tracking-tighter leading-none mb-8">
                 Technical <br />
-                <span className="text-accent italic font-light">Arsenal</span>
+                <span className="text-accent italic font-light">Skills</span>
               </h3>
               <p className="text-secondary/40 font-body text-sm leading-relaxed max-w-sm">
-                A curated selection of technologies I use to build intelligent, high-performance digital products. Focused on scalability, speed, and cinematic user experiences.
+                I work with modern web technologies to build fast, responsive, and scalable web applications. I focus on writing clean, maintainable code and creating smooth user experiences.
               </p>
 
               <div className="mt-12 flex items-center gap-4 text-accent/50 font-body text-[10px] tracking-widest uppercase">
@@ -96,7 +96,7 @@ const Skills = () => {
           </div>
 
           {/* Categories */}
-          <div className="lg:w-2/3 space-y-16">
+          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-5">
             {skillData.map((data, index) => (
               <SkillCategory
                 key={index}

@@ -16,7 +16,7 @@ const LinkedinIcon = ({ size = 20 }) => (
 
 const TelegramIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
   </svg>
 );
 
@@ -37,14 +37,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-32 bg-dark overflow-hidden">
+    <section id="contact" className="relative py-16 md:py-32 bg-dark overflow-hidden">
       {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-accent/4 rounded-full blur-[200px] pointer-events-none" />
       <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-primary/8 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-          
+
           {/* Left Side */}
           <div className="space-y-12">
             <motion.div
@@ -58,25 +58,25 @@ const Contact = () => {
                 Let's <span className="text-accent italic font-light">Collaborate</span>
               </h3>
               <p className="mt-8 text-secondary/45 font-body text-lg leading-relaxed max-w-md">
-                Have a vision for a project? I'm currently open to selective collaborations, freelance work, and high-impact software engineering roles.
+                Have a project in mind? I’m open to freelance work, collaborations, and software engineering opportunities where I can build impactful and scalable solutions.
               </p>
             </motion.div>
 
             {/* Contact Info */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
               className="space-y-5"
             >
-              <a href="mailto:mikiyas@example.com" className="flex items-center gap-5 group cursor-pointer">
+              <a href="mailto:mikiyashulualem@gmail.com" className="flex items-center gap-5 group cursor-pointer">
                 <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-accent group-hover:text-secondary group-hover:border-accent transition-all duration-300">
                   <Mail size={18} />
                 </div>
                 <div>
-                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Email Me</p>
-                  <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-accent transition-colors duration-300">mikiyas@example.com</p>
+                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Email</p>
+                  <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-accent transition-colors duration-300">mikiyashulualem@gmail.com</p>
                 </div>
               </a>
 
@@ -90,13 +90,13 @@ const Contact = () => {
                 </div>
               </div>
 
-              <a href="tel:+251911000000" className="flex items-center gap-5 group cursor-pointer">
+              <a href="tel:+251970000789" className="flex items-center gap-5 group cursor-pointer">
                 <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-accent group-hover:text-secondary group-hover:border-accent transition-all duration-300">
                   <Phone size={18} />
                 </div>
                 <div>
-                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Call Me</p>
-                  <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-accent transition-colors duration-300">+251 911 000 000</p>
+                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Phone</p>
+                  <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-accent transition-colors duration-300">+251 970000789</p>
                 </div>
               </a>
             </motion.div>
@@ -114,7 +114,7 @@ const Contact = () => {
                 <a href="https://github.com/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
                   <GithubIcon size={20} />
                 </a>
-                <a href="https://linkedin.com/in/mikiyas-hulualem" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
+                <a href="https://www.linkedin.com/in/mikiyas97/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
                   <LinkedinIcon size={20} />
                 </a>
                 <a href="https://t.me/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
@@ -134,48 +134,48 @@ const Contact = () => {
           >
             {/* Glow */}
             <div className="absolute -inset-1 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 -z-10" />
-            
+
             <form onSubmit={handleSubmit} className="space-y-7">
               <div className="space-y-2">
                 <label htmlFor="contact-name" className="text-secondary/25 font-body text-[10px] tracking-widest uppercase px-4">Full Name</label>
-                <input 
+                <input
                   id="contact-name"
-                  type="text" 
+                  type="text"
                   required
-                  placeholder="John Doe"
+                  placeholder="Mikiyas Hulualem"
                   value={formData.name}
-                  onChange={(e) => setFormData(prev => ({...prev, name: e.target.value}))}
+                  onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                   className="w-full bg-white/[0.03] border border-white/[0.08] rounded-2xl px-6 py-4 text-secondary font-body text-sm placeholder:text-secondary/15 focus:outline-none focus:border-accent/40 focus:bg-white/[0.04] transition-all duration-300"
                 />
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="contact-email" className="text-secondary/25 font-body text-[10px] tracking-widest uppercase px-4">Email Address</label>
-                <input 
+                <input
                   id="contact-email"
-                  type="email" 
+                  type="email"
                   required
-                  placeholder="john@example.com"
+                  placeholder="mikiyashulualem@gmail.com"
                   value={formData.email}
-                  onChange={(e) => setFormData(prev => ({...prev, email: e.target.value}))}
+                  onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   className="w-full bg-white/[0.03] border border-white/[0.08] rounded-2xl px-6 py-4 text-secondary font-body text-sm placeholder:text-secondary/15 focus:outline-none focus:border-accent/40 focus:bg-white/[0.04] transition-all duration-300"
                 />
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="contact-message" className="text-secondary/25 font-body text-[10px] tracking-widest uppercase px-4">Message</label>
-                <textarea 
+                <textarea
                   id="contact-message"
                   rows="5"
                   required
                   placeholder="Tell me about your project..."
                   value={formData.message}
-                  onChange={(e) => setFormData(prev => ({...prev, message: e.target.value}))}
+                  onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                   className="w-full bg-white/[0.03] border border-white/[0.08] rounded-2xl px-6 py-4 text-secondary font-body text-sm placeholder:text-secondary/15 focus:outline-none focus:border-accent/40 focus:bg-white/[0.04] transition-all duration-300 resize-none"
                 />
               </div>
 
-              <button 
+              <button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full group relative px-10 py-5 bg-secondary text-dark rounded-full font-body font-bold transition-all duration-500 hover:bg-accent hover:text-secondary overflow-hidden flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_30px_rgba(243,235,221,0.05)]"

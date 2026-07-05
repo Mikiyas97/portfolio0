@@ -12,73 +12,98 @@ const projects = [
   {
     title: "SkillSwap DBU",
     category: "Full-Stack • AI • Real-Time",
-    description: "A peer-to-peer educational matching platform for Debre Berhan University students. Features AI-powered skill matching via Google Gemini, interactive swipe deck interface, real-time chat with WebSockets, and OTP-based authentication — all wrapped in a dark luxury glassmorphism UI.",
+    description: "A peer-to-peer educational platform for Debre Berhan University students. Features include an AI-powered matching engine, real-time live chat via WebSockets, passwordless OTP verification, and an interactive swipe deck to find study partners.",
     image: "/projects/skillswap.png",
-    tech: ["React", "Django", "Gemini AI", "Supabase", "Tailwind", "WebSockets", "Zustand"],
-    link: "https://skill-swap-jtb9.vercel.app/",
+    tech: ["React", "Django", "Gemini AI", "Supabase", "Tailwind CSS", "WebSockets"],
+    link: "https://skill-swap-theta-seven.vercel.app/",
     github: "https://github.com/Mikiyas97/skillSwap",
     featured: true,
     highlights: [
-      "AI-Powered Matching Engine with Gemini 2.5",
-      "Real-Time Chat via Django Channels",
-      "Swipe Deck UI with Framer Motion",
+      "AI-Powered Matching Engine (Gemini 2.5)",
+      "Interactive Swipe Deck (Framer Motion)",
+      "Real-Time Chat (WebSockets)",
       "Passwordless OTP Authentication"
     ]
   },
   {
-    title: "QueryChatBot",
-    category: "Web App • NLP",
-    description: "A persistent, high-performance academic chatbot with LaTeX support, code block rendering, and context-aware memory designed for university students.",
+    title: "QueryChatBot (IMDb AI Assistant)",
+    category: "Full-Stack • AI",
+    description: "A Flask-based application that allows users to query a SQLite database using natural language. It leverages Google's Gemini AI to translate questions into SQL queries, executes them, and displays results in a responsive interface.",
     image: "/projects/querychatbot.png",
-    tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL"],
-    link: "https://query-chat-bot-w1nx.vercel.app/",
+    tech: ["Flask", "Python", "SQLite", "Gemini AI", "Tailwind CSS"],
+    link: "https://query-chat-bot.vercel.app/",
     github: "https://github.com/Mikiyas97/QueryChatBot",
     featured: false,
-    highlights: []
+    highlights: [
+      "Natural Language to SQL Generation",
+      "Gemini 1.5 Flash Integration",
+      "Persistent Chat History",
+      "Dark/Light Theme Support"
+    ]
   },
   {
-    title: "Academic Advisor AI",
+    title: "GPA Pro: Academic Advisor",
     category: "Full-Stack • AI Integration",
-    description: "A sophisticated GPA Calculator and Academic Advisor that utilizes Google Gemini to provide personalized academic guidance, performance analytics, and intelligent grade prediction.",
+    description: "A high-performance academic management PWA featuring an AI-driven advisor powered by Gemini 2.5 Flash, interactive analytics with Chart.js, and professional transcript generation.",
     image: "/projects/gpa-calculator.png",
-    tech: ["React", "Firebase", "Gemini API", "Tailwind CSS"],
+    tech: ["JavaScript", "Flask", "Firebase", "Gemini AI", "Chart.js"],
     link: "https://gpa-calculator-sage-six.vercel.app/",
     github: "https://github.com/Mikiyas97/gpa_calculator",
     featured: false,
-    highlights: []
-  },
-  {
-    title: "Ethiopian Info Assistant",
-    category: "AI • RAG • NLP",
-    description: "A localized AI assistant specialized in providing accurate information about Ethiopian culture, history, and current affairs using advanced RAG techniques.",
-    image: "/projects/ethiopian-assistant.png",
-    tech: ["Python", "LangChain", "Gemini", "Streamlit"],
-    link: "https://t.me/Ethiopiainfoassistbot",
-    github: "https://github.com/Mikiyas97/EthiopianInformationAssistantBot",
-    featured: false,
-    highlights: []
-  },
-  {
-    title: "NeuroSort AI",
-    category: "Desktop App • Computer Vision",
-    description: "An intelligent desktop file organizer that uses computer vision and NLP to automatically categorize and sort local documents based on semantic content and visual patterns.",
-    image: "/projects/neurosort.png",
-    tech: ["Python", "PyQt6", "OpenCV", "Gemini Pro"],
-    link: null,
-    github: "https://github.com/Mikiyas97/NeuroSort-Ai",
-    featured: false,
-    highlights: []
+    highlights: [
+      "AI Academic Advisor (Gemini 2.5)",
+      "Target GPA Calculator",
+      "Professional Transcripts",
+      "PWA & Offline Support"
+    ]
   },
   {
     title: "Student Management System",
-    category: "Enterprise • Database",
-    description: "A robust enterprise-level system for managing university academic relational hierarchies, course enrollments, and weighted grading systems.",
+    category: "Desktop App • C++ • Qt",
+    description: "A comprehensive desktop application for managing high school academic operations including student records, teacher assignments, grading, ranking, and real-time reporting.",
     image: "/projects/student-management.png",
-    tech: ["React", "SQLite", "Express", "Material UI"],
+    tech: ["C++17", "Qt 6", "SQLite", "qmake"],
     link: null,
-    github: "https://github.com/Mikiyas97/StudentManagmentSystem",
+    github: "https://github.com/Mikiyas97/Student-Management-System",
     featured: false,
-    highlights: []
+    highlights: [
+      "Role-Based Authentication",
+      "Real-time Dashboard Analytics",
+      "Automated Subject Enrollment",
+      "Semester Ranking System"
+    ]
+  },
+  {
+    title: "NeuroSort AI",
+    category: "Desktop App • AI • File Manager",
+    description: "An AI-powered desktop application built with Python (PySide6) that automatically analyzes, classifies, and organizes files using Google Gemini AI, featuring intelligent suggestions, semantic search, and an AI chat assistant.",
+    image: "/projects/neurosort.png",
+    tech: ["Python", "PySide6", "Gemini AI", "SQLite", "Sentence Transformers"],
+    link: null,
+    github: "https://github.com/Mikiyas97/NeuroSort-Ai",
+    featured: false,
+    highlights: [
+      "AI-Powered Classification",
+      "Semantic Search",
+      "AI Chat Assistant",
+      "Smart Undo System"
+    ]
+  },
+  {
+    title: "Ethiopia Info Assistant",
+    category: "AI • Telegram Bot",
+    description: "An advanced Telegram Bot combining a database of top destinations with real-time APIs (Weather, Wikipedia, Maps) and Google Gemini AI to provide an interactive travel guide.",
+    image: "/projects/ethiopian-assistant.png",
+    tech: ["Python", "Telegram API", "Gemini AI", "Vercel", "OpenWeatherMap"],
+    link: "https://t.me/Ethiopiainfoassistbot",
+    github: "https://github.com/Mikiyas97/EthiopianInformationAssistantBot",
+    featured: false,
+    highlights: [
+      "AI Chatbot (Google Gemini)",
+      "Smart Visual Exploration",
+      "Mapping & Navigation",
+      "Real-Time Weather Integration"
+    ]
   },
 
 ];
@@ -235,6 +260,70 @@ const techIcons = {
       <path d="M12 2L2 19.5h20L12 2zm0 5l6 10.5H6L12 7z" />
     </svg>
   ),
+  "Flask": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M9 3h6v4l4 10a2 2 0 01-1.7 3H6.7A2 2 0 015 17l4-10V3z" />
+    </svg>
+  ),
+  "JavaScript": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5">
+      <path d="M0 0h24v24H0z" fill="#F7DF1E"/>
+      <path d="M11.854 14.73c-.062-.12-.132-.23-.207-.333l-1.92 1.11c.214.335.534.613.91.802.38.193.81.288 1.258.288.583 0 1.085-.145 1.488-.426.39-.272.583-.65.583-1.12 0-.25-.06-.474-.176-.665-.116-.188-.306-.35-.556-.475-.24-.117-.557-.222-.924-.31-1.026-.237-1.768-.535-2.18-.88-.415-.35-.63-.846-.63-1.468 0-.482.128-.9.378-1.242.253-.346.613-.615 1.066-.795.45-.184.97-.278 1.54-.278.508 0 .977.086 1.393.253.414.16.76.386 1.025.66.257.265.44.57.54.912l-1.854 1.045c-.156-.412-.416-.71-.762-.88-.337-.16-.723-.242-1.137-.242-.486 0-.897.108-1.21.317-.306.2-.462.482-.462.833 0 .216.05.405.15.556.102.148.273.28.5.385.23.103.545.197.935.275 1.01.21 1.748.51 2.183.882.44.37.665.88.665 1.503 0 .5-.138.932-.405 1.282-.266.347-.638.618-1.096.804-.45.18-1.002.274-1.63.274-.686 0-1.3-.122-1.826-.358-.518-.236-.94-.576-1.255-1.005zm-5.74-2.584v-3.08h2.31v4.88c0 .874-.18 1.542-.525 1.986-.347.436-.882.66-1.58.66-.462 0-.892-.093-1.274-.275-.374-.18-.682-.44-.913-.762-.224-.32-.34-.7-.34-1.127v-.122l2.12-.55c.045.313.155.56.326.732.164.167.382.253.64.253.305 0 .54-.085.696-.252.155-.17.23-.418.23-.736z" fill="#000000"/>
+    </svg>
+  ),
+  "Chart.js": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="#FF6384" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 3v18h18" stroke="#36A2EB" />
+      <path d="M7 14l4-4 4 4 6-6" />
+    </svg>
+  ),
+  "C++17": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="#00599C">
+      <path d="M21.706 13.91a2.185 2.185 0 01-1.094 1.895l-7.514 4.337a2.185 2.185 0 01-2.196 0l-7.515-4.337a2.185 2.185 0 01-1.094-1.895V5.244a2.185 2.185 0 011.094-1.895l7.515-4.337a2.185 2.185 0 012.196 0l7.514 4.337a2.185 2.185 0 011.094 1.895v8.666z" fill="#00599C" opacity="0.8"/>
+      <text x="50%" y="55%" dominantBaseline="middle" textAnchor="middle" fill="#FFF" fontSize="6" fontWeight="bold">C++</text>
+    </svg>
+  ),
+  "Qt 6": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="#41CD52">
+      <rect width="24" height="24" rx="4" fill="#41CD52" />
+      <path d="M6 6h5v5H6V6zm7 0h5v5h-5V6zM6 13h5v5H6v-5zm8.5 1.5l3.5 3.5m0-3.5l-3.5 3.5" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none" />
+    </svg>
+  ),
+  "qmake": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
+    </svg>
+  ),
+  "PySide6": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="#41CD52">
+      <rect width="24" height="24" rx="4" fill="#41CD52" />
+      <path d="M6 6h5v5H6V6zm7 0h5v5h-5V6zM6 13h5v5H6v-5zm8.5 1.5l3.5 3.5m0-3.5l-3.5 3.5" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none" />
+    </svg>
+  ),
+  "Sentence Transformers": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" />
+      <circle cx="12" cy="11" r="2" />
+    </svg>
+  ),
+  "Telegram API": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="#26A5E4">
+      <path d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12z" />
+      <path d="M5.045 11.892l12.443-4.803c.578-.216 1.085.138.89 1.066l-2.116 9.96c-.15.688-.564.86-1.134.54l-3.13-2.308-1.51 1.455c-.167.167-.308.308-.631.308l.225-3.187 5.8-5.239c.252-.225-.055-.35-.39-.126l-7.172 4.512-3.087-.963c-.67-.21-.684-.67.14-.99z" fill="white" />
+    </svg>
+  ),
+  "Vercel": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor">
+      <path d="M12 2L24 22H0L12 2z" />
+    </svg>
+  ),
+  "OpenWeatherMap": (
+    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="#F18F01" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="5" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+    </svg>
+  ),
 };
 
 const TechPill = ({ name }) => {
@@ -349,37 +438,26 @@ const Work = () => {
   };
 
   return (
-    <section id="work" className="relative py-32 bg-dark overflow-hidden">
+    <section id="work" className="relative py-16 md:py-32 bg-dark overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-primary/4 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
-        <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-20 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl"
-          >
+            >
             <h2 className="text-secondary/20 font-body text-xs md:text-sm tracking-[0.5em] uppercase mb-4">Portfolio</h2>
             <h3 className="text-5xl md:text-7xl font-heading font-bold text-secondary tracking-tighter leading-none">
-              Selected <span className="text-accent italic font-light">Works</span>
+              Selected <span className="text-accent italic font-light">Projects</span>
             </h3>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="hidden lg:block text-right"
-          >
-            <p className="text-secondary/25 font-body text-sm max-w-xs leading-relaxed italic">
-              "Building intelligent systems that feel as good as they function."
-            </p>
-          </motion.div>
+
         </div>
 
         {/* Regular Projects Grid */}
@@ -389,26 +467,7 @@ const Work = () => {
           ))}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-32 text-center"
-        >
-          <div className="section-divider mb-20" />
-          <h4 className="text-secondary/15 font-heading text-4xl md:text-6xl font-bold tracking-tighter mb-10">
-            Intrigued by my <span className="text-accent/40">Process?</span>
-          </h4>
-          <a
-            href="#contact"
-            onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-            className="inline-flex px-12 py-5 bg-white/[0.03] border border-white/[0.08] rounded-full text-secondary font-body text-sm font-bold tracking-[0.3em] uppercase hover:bg-secondary hover:text-dark transition-all duration-500 hover:scale-105"
-          >
-            Let's build something together
-          </a>
-        </motion.div>
+
       </div>
 
       {/* Background Label */}
