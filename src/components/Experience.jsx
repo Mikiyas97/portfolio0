@@ -108,7 +108,7 @@ const TimelineItem = ({ item, index }) => {
           {item.highlights.map((h, i) => {
             const icon = stackIcons[h];
             return (
-              <span key={i} className="flex items-center gap-1.5 text-[10px] font-body font-bold tracking-widest text-secondary/25 uppercase border border-white/[0.05] px-3 py-1 rounded-full group-hover:border-accent/15 group-hover:text-secondary/40 transition-colors duration-500">
+              <span key={i} className={`flex items-center gap-1.5 text-[10px] font-body font-bold tracking-widest uppercase border px-3 py-1 rounded-full transition-colors duration-500 ${isEdu ? 'text-primary/60 border-primary/20 bg-primary/5 group-hover:border-primary/40 group-hover:text-primary' : 'text-accent/60 border-accent/20 bg-accent/5 group-hover:border-accent/40 group-hover:text-accent'}`}>
                 {icon && <span className="shrink-0 opacity-70">{icon}</span>}
                 {h}
               </span>

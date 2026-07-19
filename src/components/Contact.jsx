@@ -80,16 +80,6 @@ const Contact = () => {
                 </div>
               </a>
 
-              <div className="flex items-center gap-5 group">
-                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-primary group-hover:text-secondary group-hover:border-primary transition-all duration-300">
-                  <MapPin size={18} />
-                </div>
-                <div>
-                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Location</p>
-                  <p className="text-secondary font-body font-semibold text-sm tracking-wider">Addis Ababa, Ethiopia</p>
-                </div>
-              </div>
-
               <a href="tel:+251970000789" className="flex items-center gap-5 group cursor-pointer">
                 <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-accent group-hover:text-secondary group-hover:border-accent transition-all duration-300">
                   <Phone size={18} />
@@ -99,27 +89,41 @@ const Contact = () => {
                   <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-accent transition-colors duration-300">+251 970000789</p>
                 </div>
               </a>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="pt-10 border-t border-white/[0.05]"
-            >
-              <p className="text-secondary/15 font-body text-[10px] tracking-[0.3em] uppercase mb-6">Find me on</p>
-              <div className="flex gap-5">
-                <a href="https://github.com/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
-                  <GithubIcon size={20} />
-                </a>
-                <a href="https://www.linkedin.com/in/mikiyas97/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
-                  <LinkedinIcon size={20} />
-                </a>
-                <a href="https://t.me/Mikiyas97" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-secondary/35 hover:text-accent hover:border-accent/30 hover:bg-accent/5 transition-all duration-500 hover:-translate-y-1">
-                  <TelegramIcon size={20} />
-                </a>
+              <a href="https://github.com/Mikiyas97" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 group cursor-pointer">
+                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-accent group-hover:text-secondary group-hover:border-accent transition-all duration-300">
+                  <GithubIcon size={18} />
+                </div>
+                <div>
+                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">GitHub</p>
+                  <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-accent transition-colors duration-300">github.com/Mikiyas97</p>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/in/mikiyas97/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 group cursor-pointer">
+                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-primary group-hover:text-secondary group-hover:border-primary transition-all duration-300">
+                  <LinkedinIcon size={18} />
+                </div>
+                <div>
+                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">LinkedIn</p>
+                  <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-primary transition-colors duration-300">linkedin.com/in/mikiyas97</p>
+                </div>
+              </a>
+              <a href="https://t.me/Mikiyas97" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 group cursor-pointer">
+                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-accent group-hover:text-secondary group-hover:border-accent transition-all duration-300">
+                  <TelegramIcon size={18} />
+                </div>
+                <div>
+                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Telegram</p>
+                  <p className="text-secondary font-body font-semibold text-sm tracking-wider group-hover:text-accent transition-colors duration-300">@Mikiyas97</p>
+                </div>
+              </a>
+              <div className="flex items-center gap-5 group">
+                <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-secondary/60 group-hover:bg-primary group-hover:text-secondary group-hover:border-primary transition-all duration-300">
+                  <MapPin size={18} />
+                </div>
+                <div>
+                  <p className="text-secondary/25 font-body text-[10px] tracking-widest uppercase">Location</p>
+                  <p className="text-secondary font-body font-semibold text-sm tracking-wider">Addis Ababa, Ethiopia</p>
+                </div>
               </div>
             </motion.div>
           </div>

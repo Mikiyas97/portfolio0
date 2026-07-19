@@ -35,11 +35,16 @@ const Navbar = () => {
 
   const scrollToSection = (e, href) => {
     e.preventDefault();
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
     setIsMobileMenuOpen(false);
+    
+    // Small delay ensures the menu close animation doesn't interrupt the scroll on mobile
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 80; // Adjust for navbar height
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, 50);
   };
 
   return (
@@ -126,9 +131,9 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: '100vh' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-dark/95 backdrop-blur-2xl border-b border-white/[0.06] overflow-hidden"
+            className="lg:hidden absolute top-full left-0 w-full bg-dark/95 backdrop-blur-2xl border-b border-white/[0.06] overflow-hidden"
           >
             <div className="flex flex-col items-center py-12 gap-6">
               {navLinks.map((link, index) => (
